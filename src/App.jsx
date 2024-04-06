@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+  const queryClient = useQueryClient();
+
+  const query = useQuery({
+    queryKey: ["todos"],
+    queryFn: () => {
+      console.log(1);
+      return new Array(1)
+        .fill(true)
+        .map((item, index) => ({ key: index, title: "todo" + index }));
+    },
+  });
+
+  const mutation = useMutation({
+    mutationFn: () => {
+      console.log("mutationFn");
+    },
+    onSuccess: () => {
+      console.log("onSuccess");
+      queryClient.invalidateQueries({ queryKey: ["todos"] });
+    },
+  });
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <div>
+      {query.data?.map((item) => (
+        <li key={item.key}>{item.title}</li>
+      ))}
+      <button
+        onClick={() => {
+          mutation.mutate({ key: "key-new", title: "todo-title" });
+        }}
+      >
+        add todo
+      </button>
+    </div>
+  );
+};
 
-export default App
+export default App;
