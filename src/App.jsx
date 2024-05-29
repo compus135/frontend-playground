@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { PageContainer, ProLayout } from "@ant-design/pro-components";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+export default function App() {
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div
+      style={{
+        height: "100vh",
+      }}
+    >
+      <ProLayout
+        location={{
+          pathname: "/articles/new",
+        }}
+        iconfontUrl="//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js"
+        route={{
+          routes: [
+            {
+              path: "/home",
+              name: "收藏",
+              icon: "icon-shoucang1",
+            },
+            {
+              path: "/home/overview",
+              name: "FaceBook",
+              icon: "icon-facebook",
+            },
+            {
+              path: "/home/search",
+              name: "Twitter",
+              icon: "icon-twitter",
+            },
+          ],
+        }}
+      >
+        <PageContainer content="欢迎使用">
+          <div>Hello World</div>
+        </PageContainer>
+      </ProLayout>
+    </div>
+  );
 }
-
-export default App
