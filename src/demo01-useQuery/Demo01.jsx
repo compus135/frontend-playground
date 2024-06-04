@@ -1,8 +1,6 @@
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 const App = () => {
-  const queryClient = useQueryClient();
-
   const query = useQuery({
     queryKey: ["todos"],
     queryFn: async () => {
@@ -15,28 +13,11 @@ const App = () => {
   });
   console.log(query, "query-------");
 
-  const mutation = useMutation({
-    mutationFn: () => {
-      console.log("mutationFn");
-    },
-    onSuccess: () => {
-      console.log("onSuccess");
-      queryClient.invalidateQueries({ queryKey: ["todos"] });
-    },
-  });
-
   return (
     <div>
       {query.data?.map((item) => (
         <li key={item.key}>{item.title}</li>
       ))}
-      <button
-        onClick={() => {
-          mutation.mutate({ key: "key-new", title: "todo-title" });
-        }}
-      >
-        add todo
-      </button>
     </div>
   );
 };
