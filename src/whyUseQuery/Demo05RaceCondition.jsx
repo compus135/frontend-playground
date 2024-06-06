@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { doGetTodosByName } from "../services/index";
 
-const Demo03RaceCondition = () => {
+const Demo05RaceCondition = () => {
   const [todos, setTodos] = useState([]);
   const [name, setName] = useState("");
 
@@ -33,4 +33,4 @@ const Demo03RaceCondition = () => {
   );
 };
 
-export default Demo03RaceCondition;
+export default Demo05RaceCondition;
