@@ -7,6 +7,7 @@
 - 重复处理中间状态，比如：loading, error, 参考 `whyUseQuery/Demo01RequestState`
 - 服务端状态应被归类为缓存，因为状态由数据源控制，不由前端控制；参考 `whyUseQuery/Demo02UpdateState`
 - useEffect 中请求初始数据的问题，参考`在 React18 中请求数据的正确姿势`
+  竞速问题,后面的请求先返回导致前面的请求结果覆盖,参考`whyUseQuery/Demo05RaceCondition`
 
 # 其它
 

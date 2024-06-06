@@ -1,7 +1,7 @@
 const todos = [
-  { id: 1, name: "John" },
-  { id: 2, name: "Mary" },
-  { id: 3, name: "Bob" },
+  { id: 1, name: "todo1" },
+  { id: 2, name: "todo112" },
+  { id: 3, name: "todo1113" },
 ];
 
 export function doGetTodos() {
@@ -10,6 +10,19 @@ export function doGetTodos() {
       console.log("http request to get todos", todos);
       resolve(todos);
     }, 2000);
+  });
+}
+
+export function doGetTodosByName(name) {
+  return new Promise((resolve) => {
+    setTimeout(
+      () => {
+        const filterTodos = todos.filter((todo) => todo.name.includes(name));
+        console.log("name---", name, filterTodos);
+        resolve(filterTodos);
+      },
+      name.length === 1 ? 4000 : 1000
+    );
   });
 }
 
