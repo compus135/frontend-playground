@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { Outlet } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Foo from "./react-router/cache/Foo";
+import Bar from "./react-router/cache/Bar";
 
 const Home = () => {
   return (
@@ -21,8 +23,8 @@ const routes = [
     element: <Home />,
     errorElement: <div>Error</div>,
     children: [
-      { path: "foo", element: <div>foo</div> },
-      { path: "bar", element: <div>bar</div> },
+      { path: "foo", element: <Foo /> },
+      { path: "bar", element: <Bar /> },
     ],
   },
 ];

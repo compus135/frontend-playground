@@ -3,13 +3,18 @@ const todos = [
   { id: 2, name: "todo112" },
   { id: 3, name: "todo1113" },
 ];
+let count = 0;
 
 export function doGetTodos() {
   return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log("http request to get todos", todos);
-      resolve(todos);
-    }, 2000);
+    setTimeout(
+      () => {
+        console.log("http request to get todos", todos);
+        resolve(todos);
+        count++;
+      },
+      count === 2 ? 0 : 2000
+    );
   });
 }
 
