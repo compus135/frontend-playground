@@ -1,14 +1,4 @@
 import ReactDOM from "react-dom/client";
-import App from "./AppWithRouter";
+import App from "./react-query-examples/App";
 
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
-
-const queryClient = new QueryClient();
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <QueryClientProvider client={queryClient}>
-    <App />
-    <ReactQueryDevtools initialIsOpen={true} />
-  </QueryClientProvider>
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);

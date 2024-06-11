@@ -13,7 +13,7 @@ export function doGetTodos() {
         resolve(todos);
         count++;
       },
-      count === 2 ? 0 : 2000
+      count === 2 ? 2000 : 2000
     );
   });
 }
