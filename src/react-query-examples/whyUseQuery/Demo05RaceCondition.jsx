@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { doGetTodosByName } from "../services/index";
+import { doGetTodosByName } from "../../services/index";
 
 const Demo05RaceCondition = () => {
   const [todos, setTodos] = useState([]);

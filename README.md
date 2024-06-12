@@ -3,6 +3,7 @@
 ## 特点
 
 - 多个组件使用 useQuery 获取数据，只会发起一次请求，缓存数据，避免重复请求, 参考 `react-query-examples/demo01`, 竞速问题：`D:\workspace\playground\vite\vite-project\src\whyUseQuery`
+- 默认情况下，useQuery 会缓存数据，直到组件卸载，可以设置缓存时间，参考 `react-query-examples/demo02`
 
 ## useQuery 返回值
 
