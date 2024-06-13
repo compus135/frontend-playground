@@ -8,6 +8,7 @@
 ## useQuery 返回值
 
 - isFetching： query 对象，首次 isFetching: true,渲染后 isFetching:false
+- isPending: 没有缓存值，也没有完成查询
 
 ## 应用场景
 
